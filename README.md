@@ -29,7 +29,7 @@ $ chrome-server --help
     -p, --port [port]          listen port
     -v, --verbose              verbose
     -c, --config [configFile]  config file to load
-    -h, --help                 output usage information
+    --help                     output usage information
 ```
 
   Configuration file
