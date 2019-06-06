@@ -9,7 +9,7 @@ const logger = log4js.getLogger('chrome-server');
 
 const BASE_PATH = process.cwd();
 program
-  .version('0.1.0')
+  .version(require('../package.json').version)
   .allowUnknownOption()
   .option('-h, --host [host]', 'listen address', '0.0.0.0')
   .option('-p, --port [port]', 'listen port', parseInt, 0)
