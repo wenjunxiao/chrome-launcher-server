@@ -4,7 +4,7 @@
  */
 
 module.exports = {
-  
+  chrome: '',
   port: 5101
 };
 

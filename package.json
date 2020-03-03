@@ -1,8 +1,8 @@
 {
   "name": "chrome-launcher-server",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "lib/server.js",
   "bin": {
     "chrome-server": "./bin/chrome-server.js"
   },
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/wenjunxiao/chrome-launcher-server#readme",
   "dependencies": {
     "chrome-launcher": "^0.8.1",
+    "chrome-remote-interface": "^0.24.5",
     "commander": "^2.11.0",
     "glob": "^7.1.2",
     "http-proxy": "^1.16.2",

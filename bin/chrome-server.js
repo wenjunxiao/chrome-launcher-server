@@ -15,6 +15,7 @@ program
   .option('-p, --port [port]', 'listen port', parseInt, 0)
   .option('-v, --verbose', 'verbose')
   .option('-c, --config [configFile]', 'config file to load')
+  .option('--config-chrome [chrome]', 'chrome config directory')
   .parse(process.argv);
 
 /**
@@ -34,9 +35,7 @@ const logConfig = {
  * 配置信息,从当前运行目录加载配置
  */
 let configs = [{
-  log4js: logConfig,
-  port: program.port || parseInt(process.env.PORT, 0) || 0,
-  host: program.host
+  log4js: logConfig
 }];
 if (program.config) {
   // 从配置文件中加载
@@ -45,7 +44,11 @@ if (program.config) {
   }));
 }
 
-const config = _.merge.apply(null, configs);
+const config = _.merge.apply(null, configs.concat([{
+  port: program.port || parseInt(process.env.PORT, 0) || 0,
+  host: program.host,
+  chrome: program.configChrome
+}]));
 /**
  * 启用日志配置信息
  */
