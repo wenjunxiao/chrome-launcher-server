@@ -25,6 +25,7 @@
     "commander": "^2.11.0",
     "glob": "^7.1.2",
     "http-proxy": "^1.16.2",
+    "jszip": "^3.2.2",
     "koa": "^2.3.0",
     "koa-bodyparser": "^2.5.0",
     "koa-convert": "^1.2.0",
