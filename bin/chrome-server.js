@@ -16,6 +16,7 @@ program
   .option('-v, --verbose', 'verbose')
   .option('-c, --config [configFile]', 'config file to load')
   .option('--config-chrome [chrome]', 'chrome config directory')
+  .option('--proxy [port]', 'proxy listen port')
   .parse(process.argv);
 
 /**
@@ -65,3 +66,10 @@ server.listen(config.port, config.host, (err) => {
   logger.debug('listen => %s:%s', addr.address, addr.port);
   logger.debug('server started in `%s`', BASE_PATH);
 });
+if (program.proxy) {
+  const proxyServer = require('../lib/proxy-server')();
+  proxyServer.listen(program.proxy, config.host, ()=>{
+    const addr = proxyServer.address();
+    logger.debug('proxy listen => %s:%s', addr.address, addr.port);
+  });
+}
